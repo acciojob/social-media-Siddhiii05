@@ -1,1 +1,184 @@
 
+/* General styling */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+  color: #2d3436;
+}
+
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+  color: #6c5ce7;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #2d3436;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 16px;
+  margin-bottom: 25px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+nav a {
+  color: #6c5ce7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #4834d4;
+  text-decoration: underline;
+}
+
+/* Posts list */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual post */
+.post {
+  background-color: white;
+  border: 1px solid #e1e1e8;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.post h2 {
+  margin-top: 0;
+}
+
+.post p {
+  line-height: 1.6;
+}
+
+/* Buttons */
+button,
+.button {
+  display: inline-block;
+  padding: 9px 15px;
+  margin: 5px 5px 5px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #6c5ce7;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover,
+.button:hover {
+  background-color: #4834d4;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #6c5ce7;
+}
+
+/* Users list */
+ul {
+  padding-left: 25px;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+li a {
+  color: #6c5ce7;
+  text-decoration: none;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+/* Notifications */
+.notificationsList {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.notificationsList p {
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #f0edff;
+  border-radius: 6px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  .post {
+    padding: 15px;
+  }
+
+  button,
+  .button {
+    font-size: 13px;
+  }
+}
