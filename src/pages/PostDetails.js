@@ -1,29 +1,31 @@
-import React from 'react';
 
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PostDetails = (props) => {
-    const postId = props.match.params.postId;
+  const { posts } = props;
+  const postId = Number(props.match.params.postId);
 
-    const posts = props.posts;
+  const post = posts.find(item => item.id === postId);
 
-    const selectedPost = posts.find(post => post.id === Number(postId));
+  if (!post) {
+    return <p>Post not found</p>;
+  }
 
-    if (!selectedPost) {
-        return <p>Post not found</p>;
-    }
+  return (
+    <div className="post">
+      <h1>{post.title}</h1>
+      <p>Author: {post.author}</p>
+      <p>{post.content}</p>
 
-    return (
-        <div className="post">
-            <h1>{selectedPost.title}</h1>
-            <p>Author: {selectedPost.author}</p>
-            <p>{selectedPost.content}</p>
-
-            <Link to={`/posts/${postId}/edit`}>
-                <button className="button">Edit</button>
-            </Link>
-        </div>
-    );
+      <Link
+        className="button"
+        to={`/posts/${post.id}/edit`}
+      >
+        Edit
+      </Link>
+    </div>
+  );
 };
 
-export default PostDetails;
+export default PostDetails;```
