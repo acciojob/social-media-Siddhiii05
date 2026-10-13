@@ -17,9 +17,10 @@ const Home = ({posts}) => {
     <div className='posts-list'>    
       {posts.map((post) => (
           <div className="post" key={post.id}>
-              <p>{post.title}</p>
-              <p>{post.author}</p>
+              <h2>{post.title}</h2>
+              <p>Author: {post.author}</p>
               <p>{post.content}</p>
+
 
               <button onClick={() => handleReaction(post.id, 'Like')}>
                 Like: {reactions[`${post.id}-Like`] || 0}
@@ -37,9 +38,7 @@ const Home = ({posts}) => {
                 Angry: 0
               </button>
 
-              <Link to={`/posts/${post.id}`}>
-                <button className="button">View Post</button>
-              </Link>
+              <Link className="button" to={`/posts/${post.id}`}>View Post</Link>
           </div>
       ))}
     </div>

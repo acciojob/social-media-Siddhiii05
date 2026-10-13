@@ -17,23 +17,25 @@ const EditPost = (props ) => {
     }
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const updatedPost = {
-            ...post,
-            title: title.trim(),
-            content: content.trim()
-        };
-
         setPosts(prevPosts =>
             prevPosts.map(item =>
-            item.id === Number(postId) ? updatedPost : item
+            item.id === Number(postId)
+                ? {
+                    ...item,
+                    title: title.trim(),
+                    content: content.trim()
+                }
+                : item
             )
         );
 
         props.history.push(`/posts/${postId}`);
     };
+
 
 
     return (

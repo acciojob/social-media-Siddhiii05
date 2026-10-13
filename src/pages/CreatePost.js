@@ -5,32 +5,32 @@ const CreatePost = ({setPosts}) => {
     const [author, setAuthor] = useState('John');
     const [content, setContent] = useState('');
 
-   const handleSubmit = (e) => {
-    e.preventDefault();
 
-    console.log("Submit clicked!");
-    console.log("Title:", title);
-    console.log("Content:", content);
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    if (title.trim() !== "" && content.trim() !== "") {
-        const newPost = {
-            id: Date.now(),
-            title,
-            author,
-            content
-        };
+  if (!title.trim() || !content.trim()) {
+    return;
+  }
 
-        console.log("New post:", newPost);
+  const newPost = {
+    id: Date.now(),
+    title: title.trim(),
+    author,
+    content: content.trim()
+  };
 
-        setPosts(prevPosts => [...prevPosts, newPost]);
+  setPosts(prevPosts => [
+    prevPosts[0],
+    newPost,
+    ...prevPosts.slice(1)
+  ]);
 
-        setTitle('');
-        setAuthor('John');
-        setContent('');
-    } else {
-        alert("Title and content are required!");
-    }
+  setTitle('');
+  setAuthor('John');
+  setContent('');
 };
+
 
     return (
         <div>
