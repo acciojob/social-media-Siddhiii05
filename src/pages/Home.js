@@ -7,9 +7,12 @@ const Home = ({posts}) => {
 
   const handleReaction = (postId, reaction) => {
     setReactions(prev => ({
-      ...prev,
-      [`${postId}-${reaction}`]: (prev[`${postId}-${reaction}`] || 0) + 1
-    }))
+    ...prev,
+    ...prev[postId],
+      [postId]: {
+      [reaction]: (prev[postId]?.[reaction] || 0) + 1
+    }
+  }));
   }
   console.log("Posts received:", posts);
 
@@ -35,7 +38,7 @@ const Home = ({posts}) => {
                 Wow: {reactions[`${post.id}-Wow`] || 0}
               </button>
               <button onClick={() => handleReaction(post.id, 'Angry')}>
-                Angry: 0
+                Angry: {reactions[`${post.id}-Angry`] || 0}
               </button>
 
               <Link className="button" to={`/posts/${post.id}`}>View Post</Link>

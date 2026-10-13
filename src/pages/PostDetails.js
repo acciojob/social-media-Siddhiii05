@@ -28,4 +28,4 @@ const PostDetails = (props) => {
   );
 };
 
-export default PostDetails;```
+export default PostDetails;
