@@ -16,19 +16,25 @@ const EditPost = (props ) => {
         return <p>Post not found</p>;
     }
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const updatedPost = {
+            ...post,
+            title: title.trim(),
+            content: content.trim()
+        };
+
         setPosts(prevPosts =>
-            prevPosts.map(post =>
-                post.id === Number(postId)
-                    ? { ...post, title: title, content: content }
-                    : post
+            prevPosts.map(item =>
+            item.id === Number(postId) ? updatedPost : item
             )
         );
 
         props.history.push(`/posts/${postId}`);
     };
+
 
     return (
         <div>
